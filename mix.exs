@@ -3,8 +3,8 @@ defmodule Elixilorem.Mixfile do
 
   def project do
     [ app: :elixilorem,
-      version: "0.0.1",
-      elixir: "~> 1.0.2",
+      version: "0.0.2",
+      elixir: "~> 1.12.2",
       description: "A Lorem Ipsum generator for Elixir",
       package: package,
       deps: [] ]
@@ -21,8 +21,8 @@ defmodule Elixilorem.Mixfile do
 
   defp package do
     [ files: ~w(lib priv mix.exs README.md LICENSE.md),
-      contributors: ["Garrett Amini"],
+      contributors: ["Garrett Amini", "Nikola Djordjevic"],
       licenses: ["MIT"],
-      links: %{ "Github": "https://github.com/mgamini/elixilorem"} ]
+      links: %{ "Github": "https://github.com/theMarinac/elixilorem"} ]
   end
 end
