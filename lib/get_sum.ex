@@ -2,7 +2,6 @@ defmodule Elixilorem.GetSum do
 
   @def_extension Application.get_env(:elixilorem, :extension, ".txt")
   @def_flavor Application.get_env(:elixilorem, :flavor, "lorem_ipsum")
-  # @def_format Application.get_env(:elixilorem, :format, "text")
   @def_joins Application.get_env(:elixilorem, :joins, [paragraphs: "\n", sentences: ". ", words: " "])
 
   def def_ipsum_path do
@@ -12,9 +11,8 @@ defmodule Elixilorem.GetSum do
   def get_block_sequence(type, count, %{flavor: flavor, format: nil}) do
     case get_sum_file(flavor) do
       {:error, error} -> error
-      _str ->
-        # list = str |> strip(type) |> String.split(@def_joins[type], trim: true)
-        list = get_sum_file(flavor) |> strip(type) |> String.split(@def_joins[type], trim: true)
+      str ->
+        list = str |> strip(type) |> String.split(@def_joins[type], trim: true)
         length = length(list)
 
         gen_sequence({list, count, type}, :rand.uniform(length), length, [])

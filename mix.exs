@@ -19,7 +19,7 @@ defmodule Elixilorem.Mixfile do
       joins: [paragraphs: "\n", sentences: ". ", words: " "]
     ]]
 
-  defp package do
+  defp package() do
     [ files: ~w(lib priv mix.exs README.md LICENSE.md),
       contributors: ["Garrett Amini", "Nikola Djordjevic"],
       licenses: ["MIT"],
