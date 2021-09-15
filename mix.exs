@@ -6,7 +6,7 @@ defmodule Elixilorem.Mixfile do
       version: "0.0.2",
       elixir: "~> 1.12.2",
       description: "A Lorem Ipsum generator for Elixir",
-      package: package,
+      package: package(),
       deps: [] ]
   end
 

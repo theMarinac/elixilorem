@@ -12,7 +12,7 @@ defmodule Elixilorem.GetSum do
   def get_block_sequence(type, count, %{flavor: flavor, format: nil}) do
     case get_sum_file(flavor) do
       {:error, error} -> error
-      str ->
+      _str ->
         # list = str |> strip(type) |> String.split(@def_joins[type], trim: true)
         list = get_sum_file(flavor) |> strip(type) |> String.split(@def_joins[type], trim: true)
         length = length(list)
@@ -34,7 +34,7 @@ defmodule Elixilorem.GetSum do
     end
   end
 
-  def build_sum_filepath(name), do: def_ipsum_path <> name <> @def_extension
+  def build_sum_filepath(name), do: def_ipsum_path() <> name <> @def_extension
 
   #
   # "Why all this noise? Just return random paragraphs," my hypercritical inner voice says.
@@ -43,7 +43,7 @@ defmodule Elixilorem.GetSum do
   #
 
   defp gen_sequence({list, count, type}, idx, max, out) do
-    if idx > max, do: idx = 1
+    max = if idx > max, do: 1
 
     if length(out) < count do
       gen_sequence({list, count, type}, idx + 1, max, out ++ [:lists.nth(idx, list) |> String.trim])
