@@ -16,7 +16,7 @@ defmodule ApiTests do
 
   test "GetSum.paragraphs/1: returns x paragraphs of unformatted Lorem Ipsum" do
     count = :random.uniform(10)
-    pg    = GS.paragraphs(count)
+    pg = GS.paragraphs(count)
 
     assert is_binary(pg)
     assert String.split(pg, @def_joins[:paragraphs]) |> length == count
@@ -24,10 +24,13 @@ defmodule ApiTests do
 
   test "GetSum.paragraphs/2: returns x paragraphs of text in the specified flavor" do
     count = :random.uniform(10)
-    pg    = GS.paragraphs(count, %{flavor: @test_flavor})
+    pg = GS.paragraphs(count, %{flavor: @test_flavor})
 
     assert is_binary(pg)
-    assert String.split(pg, @def_joins[:paragraphs]) |> List.first |> String.match? ~r/Paragraph/
+
+    assert String.split(pg, @def_joins[:paragraphs])
+           |> List.first()
+           |> String.match?(~r/Paragraph/)
   end
 
   # Sentences
@@ -41,7 +44,7 @@ defmodule ApiTests do
 
   test "GetSum.sentences/1: returns x sentences of unformatted Lorem Ipsum" do
     count = :random.uniform(10)
-    pg    = GS.sentences(count)
+    pg = GS.sentences(count)
 
     assert is_binary(pg)
     assert String.split(pg, @def_joins[:sentences]) |> length == count
@@ -59,12 +62,11 @@ defmodule ApiTests do
 
   test "GetSum.words/1: returns x words of unformatted Lorem Ipsum" do
     count = :random.uniform(10)
-    pg    = GS.words(count)
+    pg = GS.words(count)
 
     assert is_binary(pg)
     assert String.split(pg, @def_joins[:words]) |> length == count
 
     assert String.match?(pg, ~r/[^0-9a-zA-Z ]/) == false
   end
-
 end
