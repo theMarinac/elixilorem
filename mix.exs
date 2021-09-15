@@ -4,7 +4,7 @@ defmodule Elixilorem.Mixfile do
   def project do
     [
       app: :elixilorem,
-      version: "0.0.2",
+      version: "0.0.3",
       elixir: "~> 1.7",
       description: "A Lorem Ipsum generator for Elixir",
       package: [
