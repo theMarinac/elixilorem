@@ -5,9 +5,14 @@ defmodule Elixilorem.Mixfile do
     [
       app: :elixilorem,
       version: "0.0.2",
-      elixir: "~> 1.12.2",
+      elixir: "~> 1.7",
       description: "A Lorem Ipsum generator for Elixir",
-      package: package(),
+      package: [
+        files: ~w(lib priv mix.exs README.md LICENSE.md),
+        contributors: ["Garrett Amini", "Nikola Djordjevic"],
+        licenses: ["MIT"],
+        links: %{Github: "https://github.com/theMarinac/elixilorem"}
+      ],
       deps: []
     ]
   end
@@ -22,13 +27,4 @@ defmodule Elixilorem.Mixfile do
         joins: [paragraphs: "\n", sentences: ". ", words: " "]
       ]
     ]
-
-  defp package() do
-    [
-      files: ~w(lib priv mix.exs README.md LICENSE.md),
-      contributors: ["Garrett Amini", "Nikola Djordjevic"],
-      licenses: ["MIT"],
-      links: %{Github: "https://github.com/theMarinac/elixilorem"}
-    ]
-  end
 end
